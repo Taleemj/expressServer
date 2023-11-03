@@ -22,6 +22,12 @@ app.get("/test.docx", (req, res) => {
   fs.createReadStream(docxPath).pipe(res);
 });
 
+// Serve the image.png file
+app.get("/testimage.jpg", (req, res) => {
+  const imagePath = path.join(__dirname, "docs/testimage.jpg");
+  res.sendFile(imagePath);
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
