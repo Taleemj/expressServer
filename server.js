@@ -22,6 +22,11 @@ app.get("/test.docx", (req, res) => {
   fs.createReadStream(docxPath).pipe(res);
 });
 
+app.get("/resume.pdf", (req, res) => {
+  const docxPath = path.join(__dirname, "docs/resume.pdf");
+  fs.createReadStream(docxPath).pipe(res);
+});
+
 // Serve the image.png file
 app.get("/testimage.jpg", (req, res) => {
   const imagePath = path.join(__dirname, "docs/testimage.jpg");
